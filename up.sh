@@ -25,7 +25,7 @@ export KFCTL=${PWD}/bin/kfctl
 az login
 az group create -n $RESOURCE_GROUP_NAME -l $LOCATION
 az aks create -g $RESOURCE_GROUP_NAME -n $NAME -s $AGENT_SIZE -c $AGENT_COUNT -l $LOCATION --generate-ssh-keys
-az aks get-credentials -n $NAME -g $RESOURCE_GROUP_NAME
+az aks get-credentials -n $NAME -g $RESOURCE_GROUP_NAME --overwrite-existing
 
 if [[ ! -d $KF_DIR ]]; then
     mkdir bin
